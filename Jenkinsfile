@@ -5,8 +5,8 @@ pipeline {
         stage('Print PWD') {
             steps {
                 script {
-                    // Print the current working directory (PWD)
-                    def pwd = sh(script: 'pwd', returnStdout: true).trim()
+                    // Use bat instead of sh for Windows
+                    def pwd = bat(script: 'echo %cd%', returnStdout: true).trim()
                     echo "Current Working Directory (PWD): ${pwd}"
                 }
             }
